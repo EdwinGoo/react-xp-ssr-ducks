@@ -40,7 +40,9 @@ module.exports = [
       ])
     },
     plugins: [
-      new CleanWebpackPlugin(["dist"]),
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: ["dist"]
+      }),
       new HtmlWebpackPlugin({
         filename: "page.html",
         template: "./src/shared/index.html"

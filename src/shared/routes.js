@@ -1,15 +1,15 @@
-import List from 'Shared/ListContainer';
-import Detail from 'Shared/DetailContainer';
+import List from "Shared/containers/ListContainer";
+import Detail from "Shared/containers/DetailContainer";
 
 export default [
   {
-    path: '/',
+    path: "/",
     component: List,
-    exact: true,
+    exact: true
   },
   {
-    path: '/coin/:name',
+    path: "/coin/:name",
     component: Detail,
-    exact: true,
-  },
+    exact: true
+  }
 ];
