@@ -4,6 +4,10 @@ import { fetchCoinList } from "../store/ducks/CoinList";
 import List from "Shared/components/List";
 
 class ListContainer extends Component {
+  static getInitialData() {
+    return fetchCoinList();
+  }
+
   componentDidMount() {
     const { fetchCoinList } = this.props;
     fetchCoinList();

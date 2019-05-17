@@ -17,16 +17,21 @@ app.all("*", (req, res, next) => {
   const context = {};
   const store = configureStore();
   // when component, getInitialData static method exsits, first prepare initialState
-  const promises = routes.reduce((Ducks, route) => {
+  const action = [];
+  const promises = routes.reduce((action, route) => {
     const requestInfo = matchPath(req.url, route);
     if (requestInfo && route.component && route.component.getInitialData) {
       const { params } = requestInfo;
-      Ducks.push(
+      // console.log("a", requestInfo);
+      // console.log("a", route.component);
+      // console.log("a", route.component.getInitialData(params));
+      action.push(
         Promise.resolve(store.dispatch(route.component.getInitialData(params)))
       );
     }
-    return Ducks;
-  }, []);
+
+    return action;
+  }, action);
 
   // when preparation is done, start to rendering
   Promise.all(promises)

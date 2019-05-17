@@ -1,10 +1,10 @@
-import List from "Shared/containers/ListContainer";
+import ListContainer from "Shared/containers/ListContainer";
 import Detail from "Shared/containers/DetailContainer";
 
 export default [
   {
     path: "/",
-    component: List,
+    component: ListContainer,
     exact: true
   },
   {
